@@ -61,8 +61,53 @@ const buscarPersonaje=(nombre:string)=>{
 
 
 
-const inventarioConFrases = objetos.map((o) => { 
-    return (o.id+". "+o.nombre+". "+o.categoria+"."+o.poder);
-});
+const inventarioConFrases =() =>{ 
+     return objetos.map((o) => { 
+        return (o.id+". "+o.nombre+". "+o.categoria+"."+o.poder);
 
+    });
+}
+/*
+const agruparObjetosPorCategoria = () => {
+    return objetos.reduce((acc: { [key: string]: Objeto[] }, obj) => {
+        if (!acc[obj.categoria]) {  
+            acc[obj.categoria] = [];
+        }       
+        acc[obj.categoria].push(obj);
+        return acc;
+    },{});
+}   
+*/
 
+const poderTotalInventario = () => {
+    return objetos.reduce((total, obj) => total + obj.poder, 0);
+}
+
+const main = (): void => {
+  const opcion: number = 3; // Cambia este número para probar
+ 
+  switch (opcion) {
+    case 1:
+      listarLugares();
+      break;
+    case 2:
+      const nombreBuscado = "Sabio"; // Cambia el nombre para probar
+      buscarPersonaje(nombreBuscado);
+      break;
+    case 3:
+      console.log(inventarioConFrases());
+      break;
+    /*
+    case 4:
+      console.log(agruparObjetosPorCategoria());
+      break;
+    */
+    case 5:
+      console.log("Poder total:", poderTotalInventario());
+      break;
+    default:
+      console.log("Opción no válida.");
+  }
+};
+
+main();
