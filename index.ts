@@ -48,12 +48,21 @@ const listarLugares=()=>{
 }
 
 const buscarPersonaje=(nombre:string)=>{
-const resultado = personajes.filter((p) => {
-  if (p.nombre === nombre) {
-   console.log(`Encontrado: ${p.nombre}, fuerza: ${p.fuerza}, ${p.aliado ? "Aliado" : "Enemigo"}`
-  );
-    return true; 
-  }
-  return false;
-});
+    const resultado = personajes.filter((p) => {
+    if (p.nombre === nombre) {
+    console.log(`Encontrado: ${p.nombre}, fuerza: ${p.fuerza}, ${p.aliado ? "Aliado" : "Enemigo"}`
+    );
+        return true; 
+    }
+    return false;
+    });
+    return resultado 
 }
+
+
+
+const inventarioConFrases = objetos.map((o) => { 
+    return (o.id+". "+o.nombre+". "+o.categoria+"."+o.poder);
+});
+
+
