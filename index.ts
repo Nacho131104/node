@@ -55,8 +55,7 @@ const buscarPersonaje=(nombre:string)=>{
         return true; 
     }
     return false;
-    });
-    return resultado 
+    }); 
 }
 
 
